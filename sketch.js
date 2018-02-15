@@ -9,9 +9,6 @@ function setup() {
   speechRec.continuous = false;
   speechRec.onResult = gotSpeech;
 
-  // let input = createInput();
-  // input.position(20, 65);
-
   let button = createButton("錄音");
   let btnText = document.getElementsByTagName('button');
   button.position(40, 40);
