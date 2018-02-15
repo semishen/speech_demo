@@ -1,16 +1,16 @@
 function setup() {
   noCanvas();
   
+  //create an voice agent 
   let speech = new p5.Speech();
+  //load a voice
   speech.onLoad = voiceReady;
   speech.onEnd = readyToRec;
 
+  //create a speech recognizer
   let speechRec = new p5.SpeechRec('zh-TW');
   speechRec.continuous = false;
   speechRec.onResult = gotSpeech;
-
-  // let input = createInput();
-  // input.position(20, 65);
 
   let button = createButton("錄音");
   let btnText = document.getElementsByTagName('button');
@@ -21,8 +21,11 @@ function setup() {
   res.position(40, 80);
 
   let isRec = false;
+  
+  //the output text from the speech recognizer  
   let msg = '';
 
+  //randomly set a voice from an array of zh voices
   function voiceReady(){
     let voiceList = speech.voices.filter((item, index, array) =>{
       return item.lang.slice(0,2) === "zh"; 
@@ -33,10 +36,12 @@ function setup() {
     speech.setVoice(voice.name);
   }
   
+  //the voice agent speaks to user
   function textToSpeech(){
     speech.speak("你說： " + msg);
   }
   
+  //the speech recognizer starts analyze
   function gotSpeech(){
     console.log(speechRec);
     if(speechRec.resultValue){
