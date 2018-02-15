@@ -1,3 +1,7 @@
+//reference 
+//p5.speech: http://ability.nyu.edu/p5.js-speech/
+//p5.js: https://p5js.org/reference/
+
 function setup() {
   noCanvas();
   
@@ -68,8 +72,3 @@ function setup() {
     isRec = false;
   }
 }
-
-
-
-
-
